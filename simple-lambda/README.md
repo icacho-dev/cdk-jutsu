@@ -85,7 +85,7 @@ curl -X GET <GREET_ENDPOINT> -H "Authorization: Bearer <ID_TOKEN>"
 
 2
 
-![Architecture Diagram](simple-lambda/assets/diagram.png)
+![Architecture Diagram](https://github.com/icacho-dev/cdk-jutsu/blob/main/simple-lambda/assets/diagram.png?raw=true)
 
 3
 
