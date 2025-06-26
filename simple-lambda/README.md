@@ -79,16 +79,6 @@ curl -X GET <GREET_ENDPOINT> -H "Authorization: Bearer <ID_TOKEN>"
 
 ## Architecture Diagram
 
-1
-
-![Architecture Diagram](simple-lambda/assets/diagram.svg)
-
-2
-
-![Architecture Diagram](https://github.com/icacho-dev/cdk-jutsu/blob/main/simple-lambda/assets/diagram.png?raw=true)
-
-3
-
 ```mermaid
 graph TD
     subgraph Internet
