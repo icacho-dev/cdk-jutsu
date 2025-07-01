@@ -1,0 +1,19 @@
+{
+  "name": "order-service",
+  "version": "1.0.0",
+  "description": "Order service Lambda function",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "dev": "tsc --watch",
+    "package": "npm run clean && npm run build && cd dist && zip -r ../order-service-latest.zip ."
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.131"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.6"
+  }
+}
