@@ -1,0 +1,74 @@
+### HTTP request to create a new order
+POST http://localhost:3000/orders
+Content-Type: application/json 
+
+{
+    "userId": "user123",
+    "items": [
+        {
+            "name": "Product A",
+            "quantity": 2,
+            "price": 29.99
+        },
+        {
+            "name": "Product B", 
+            "quantity": 1,
+            "price": 19.99
+        }
+    ],
+    "total": 79.97
+}
+
+
+### HTTP request to get an order by ID
+GET http://localhost:3000/orders/xyz789abc
+Accept: application/json
+
+
+### HTTP request to create a simple order
+POST http://localhost:3000/orders
+Content-Type: application/json 
+
+{
+    "userId": "wdql587vk",
+    "items": [
+        {
+            "name": "MacBook Pro",
+            "quantity": 1,
+            "price": 2499.99
+        }
+    ],
+    "total": 2499.99
+}
+
+
+### HTTP request to get a specific order (use ID from create response)
+GET http://localhost:3000/orders/w79sc7vag
+Accept: application/json
+
+
+### HTTP request to create an order with multiple items
+POST http://localhost:3000/orders
+Content-Type: application/json 
+
+{
+    "userId": "test-user-123",
+    "items": [
+        {
+            "name": "iPhone 15 Pro",
+            "quantity": 1,
+            "price": 999.99
+        },
+        {
+            "name": "AirPods Pro",
+            "quantity": 1,
+            "price": 249.99
+        },
+        {
+            "name": "iPhone Case",
+            "quantity": 2,
+            "price": 29.99
+        }
+    ],
+    "total": 1309.96
+}

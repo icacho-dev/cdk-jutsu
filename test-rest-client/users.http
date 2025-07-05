@@ -1,0 +1,13 @@
+### HTTP request to create a new user
+POST http://localhost:3000/users
+Content-Type: application/json 
+
+{
+    "name": "James Doe",
+    "email": "james.doe@example.com"
+}
+
+
+### HTTP request to get a user by ID
+GET http://localhost:3000/users/npxks1920
+Accept: application/json
