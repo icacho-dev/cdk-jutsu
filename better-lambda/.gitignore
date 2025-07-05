@@ -1,8 +1,71 @@
+# TypeScript compilation artifacts
 *.js
 !jest.config.js
 *.d.ts
+*.js.map
+*.d.ts.map
+
+
+# Dependencies
 node_modules
 
-# CDK asset staging directory
+# Build and distribution directories
+dist
+dist/
+*/dist/
+**/dist/
+
+# CDK artifacts
 .cdk.staging
 cdk.out
+cdk.out/
+
+# SAM artifacts
+.aws-sam
+.aws-sam/
+
+# Lambda deployment artifacts
+deployments/artifacts/
+*.zip
+
+# Environment and configuration
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output
+
+# Temporary files
+tmp/
+temp/
