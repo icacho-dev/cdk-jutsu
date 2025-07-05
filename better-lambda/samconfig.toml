@@ -1,0 +1,28 @@
+version = 0.1
+
+[default.build.parameters]
+# Using CDK-generated template
+template = "cdk.out/BetterLambdaStack.template.json"
+
+[default.local_start_api.parameters]
+port = 3000
+host = "0.0.0.0"
+template = "cdk.out/BetterLambdaStack.template.json"
+
+[default.local_start_lambda.parameters]
+port = 3001
+template = "cdk.out/BetterLambdaStack.template.json"
+
+[default.deploy.parameters]
+stack_name = "better-lambda-dev"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+template = "cdk.out/BetterLambdaStack.template.json"
+
+[default.package.parameters]
+s3_bucket = ""  # Add your S3 bucket for deployment artifacts
+
+[default.sync.parameters]
+watch = true
+template = "cdk.out/BetterLambdaStack.template.json"

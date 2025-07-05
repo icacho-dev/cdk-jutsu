@@ -1,6 +1,9 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { createUser, getUser } from "./handlers/userHandlers";
 
+// Export individual handlers for SAM template
+export { createUser, getUser } from "./handlers/userHandlers";
+
 export const handler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {

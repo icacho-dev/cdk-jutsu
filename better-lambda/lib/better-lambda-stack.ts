@@ -1,5 +1,6 @@
 import * as cdk from "aws-cdk-lib";
 import * as lambda from "aws-cdk-lib/aws-lambda";
+import * as apigateway from "aws-cdk-lib/aws-apigateway";
 import { Construct } from "constructs";
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
@@ -13,7 +14,7 @@ export class BetterLambdaStack extends cdk.Stack {
       this,
       "UserServiceFunction",
       {
-        runtime: lambda.Runtime.NODEJS_18_X,
+        runtime: lambda.Runtime.NODEJS_20_X,
         handler: "index.handler",
         code: lambda.Code.fromAsset(
           "deployments/artifacts/user-service-latest.zip"
@@ -31,7 +32,7 @@ export class BetterLambdaStack extends cdk.Stack {
       this,
       "OrderServiceFunction",
       {
-        runtime: lambda.Runtime.NODEJS_18_X,
+        runtime: lambda.Runtime.NODEJS_20_X,
         handler: "index.handler",
         code: lambda.Code.fromAsset(
           "deployments/artifacts/order-service-latest.zip"
@@ -41,11 +42,35 @@ export class BetterLambdaStack extends cdk.Stack {
       }
     );
 
-    // The code that defines your stack goes here
+    // Create API Gateway
+    const api = new apigateway.RestApi(this, "BetterLambdaApi", {
+      restApiName: "Better Lambda Service",
+      description: "This service serves Lambda functions via API Gateway.",
+      defaultCorsPreflightOptions: {
+        allowOrigins: apigateway.Cors.ALL_ORIGINS,
+        allowMethods: apigateway.Cors.ALL_METHODS,
+        allowHeaders: ['Content-Type', 'X-Amz-Date', 'Authorization', 'X-Api-Key'],
+      },
+    });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'BetterLambdaQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    // Users endpoints
+    const users = api.root.addResource("users");
+    users.addMethod("POST", new apigateway.LambdaIntegration(userServiceFunction));
+    
+    const user = users.addResource("{userId}");
+    user.addMethod("GET", new apigateway.LambdaIntegration(userServiceFunction));
+
+    // Orders endpoints
+    const orders = api.root.addResource("orders");
+    orders.addMethod("POST", new apigateway.LambdaIntegration(orderServiceFunction));
+    
+    const order = orders.addResource("{orderId}");
+    order.addMethod("GET", new apigateway.LambdaIntegration(orderServiceFunction));
+
+    // Output the API URL
+    new cdk.CfnOutput(this, "ApiUrl", {
+      value: api.url,
+      description: "API Gateway URL",
+    });
   }
 }
