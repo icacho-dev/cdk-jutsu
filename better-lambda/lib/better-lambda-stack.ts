@@ -8,8 +8,7 @@ export class BetterLambdaStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // Example: Pre-built deployment package approach
-    // Assumes artifacts are built by CI/CD and placed in deployments/artifacts/
+    // User service Lambda function
     const userServiceFunction = new lambda.Function(
       this,
       "UserServiceFunction",
@@ -17,7 +16,7 @@ export class BetterLambdaStack extends cdk.Stack {
         runtime: lambda.Runtime.NODEJS_20_X,
         handler: "index.handler",
         code: lambda.Code.fromAsset(
-          "deployments/artifacts/user-service-latest.zip"
+          "lambda-functions/user-service/dist"
         ),
         timeout: cdk.Duration.seconds(30),
         memorySize: 512,
@@ -27,7 +26,7 @@ export class BetterLambdaStack extends cdk.Stack {
       }
     );
 
-    // Alternative: Reference specific version
+    // Order service Lambda function
     const orderServiceFunction = new lambda.Function(
       this,
       "OrderServiceFunction",
@@ -35,7 +34,7 @@ export class BetterLambdaStack extends cdk.Stack {
         runtime: lambda.Runtime.NODEJS_20_X,
         handler: "index.handler",
         code: lambda.Code.fromAsset(
-          "deployments/artifacts/order-service-latest.zip"
+          "lambda-functions/order-service/dist"
         ),
         timeout: cdk.Duration.seconds(30),
         memorySize: 512,
