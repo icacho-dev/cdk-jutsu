@@ -50,6 +50,10 @@ npm run build-lambdas
 npm run deploy
 ```
 
+## Local Development
+
+For local development and testing, see [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md).
+
 ## Development Workflow
 
 ### Building Individual Lambda Functions

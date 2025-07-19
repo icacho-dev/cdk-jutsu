@@ -1,0 +1,86 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Better Lambda - Local Development Environment
+
+Globals:
+  Function:
+    Timeout: 30
+    Runtime: nodejs18.x
+    Environment:
+      Variables:
+        NODE_ENV: development
+
+Resources:
+  # User Service Functions
+  CreateUserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda-functions/user-service/dist/
+      Handler: handlers/userHandlers.createUser
+      Events:
+        CreateUserApi:
+          Type: Api
+          Properties:
+            Path: /users
+            Method: post
+            RestApiId: !Ref BetterLambdaApi
+
+  GetUserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda-functions/user-service/dist/
+      Handler: handlers/userHandlers.getUser
+      Events:
+        GetUserApi:
+          Type: Api
+          Properties:
+            Path: /users/{userId}
+            Method: get
+            RestApiId: !Ref BetterLambdaApi
+
+  # Order Service Function
+  OrderServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda-functions/order-service/dist/
+      Handler: index.handler
+      Events:
+        CreateOrderApi:
+          Type: Api
+          Properties:
+            Path: /orders
+            Method: post
+            RestApiId: !Ref BetterLambdaApi
+        GetOrderApi:
+          Type: Api
+          Properties:
+            Path: /orders/{orderId}
+            Method: get
+            RestApiId: !Ref BetterLambdaApi
+
+  # API Gateway
+  BetterLambdaApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: dev
+      Cors:
+        AllowMethods: "'GET,POST,PUT,DELETE,OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin: "'*'"
+
+Outputs:
+  BetterLambdaApi:
+    Description: "API Gateway endpoint URL for dev stage"
+    Value: !Sub "https://${BetterLambdaApi}.execute-api.${AWS::Region}.amazonaws.com/dev/"
+  
+  CreateUserFunction:
+    Description: "Create User Lambda Function ARN"
+    Value: !GetAtt CreateUserFunction.Arn
+    
+  GetUserFunction:
+    Description: "Get User Lambda Function ARN"
+    Value: !GetAtt GetUserFunction.Arn
+    
+  OrderServiceFunction:
+    Description: "Order Service Lambda Function ARN"
+    Value: !GetAtt OrderServiceFunction.Arn

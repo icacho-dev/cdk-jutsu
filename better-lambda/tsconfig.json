@@ -6,6 +6,8 @@
     "lib": [
       "es2022"
     ],
+    "outDir": "./dist",
+    "rootDir": "./",
     "declaration": true,
     "strict": true,
     "noImplicitAny": true,
@@ -24,8 +26,15 @@
       "./node_modules/@types"
     ]
   },
+  "include": [
+    "bin/**/*",
+    "lib/**/*",
+    "test/**/*"
+  ],
   "exclude": [
     "node_modules",
-    "cdk.out"
+    "cdk.out",
+    "dist",
+    "lambda-functions"
   ]
 }
