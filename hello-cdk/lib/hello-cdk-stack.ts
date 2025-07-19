@@ -12,15 +12,7 @@ export class HelloCdkStack extends cdk.Stack {
     const myFunction = new lambda.Function(this, "HelloWorldFunction", {
       runtime: lambda.Runtime.NODEJS_20_X,
       handler: "index.handler",
-      code: lambda.Code.fromInline(
-        `
-        exports.handler = async function(event) {
-          return {
-            statusCode: 200,
-            body: JSON.stringify('Hello World!'),
-          };
-        };`
-      ),
+      code: lambda.Code.fromAsset("lambda/dist"),
     });
 
     // Define the Lambda function URL resource
