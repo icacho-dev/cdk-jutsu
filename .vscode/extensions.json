@@ -1,0 +1,44 @@
+{
+  "recommendations": [
+    // TypeScript & JavaScript Development
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    
+    // REST API Testing
+    "humao.rest-client",
+    
+    // AWS Development
+    // "amazonwebservices.aws-toolkit-vscode",
+    
+    // Infrastructure as Code
+    "hashicorp.terraform",
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml",
+    
+    // Git & Version Control
+    "eamodio.gitlens",
+    
+    // Shell Scripting & Terminal
+    "timonwong.shellcheck",
+    
+    // Documentation & Markdown
+    "yzhang.markdown-all-in-one",
+    "bierner.markdown-mermaid",
+    "davidanson.vscode-markdownlint",
+    
+    // Docker & Containers
+    "ms-azuretools.vscode-docker",
+    
+    // Code Quality & Analysis
+    "ms-vscode.vscode-json",
+    
+    // Theme & UI (Optional but recommended)
+    "github.github-vscode-theme",
+  ],
+  "unwantedRecommendations": [
+    // Extensions that might conflict or are unnecessary
+    "ms-vscode.vscode-typescript",
+    "hookyqr.beautify",
+    "formulahendry.auto-rename-tag"
+  ]
+}

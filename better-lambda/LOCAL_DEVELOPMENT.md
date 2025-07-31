@@ -115,9 +115,11 @@ Click "Send Request" above the POST line, and you'll see the response immediatel
 
 **Important**: Make sure your local development server is running first with `npm run dev:local`
 
-> **💡 Tip**: For easier testing, use the REST client files in `test-rest-client/` directory instead of manual curl commands!
+> **💡 Tip**: For easier testing, use the REST client files in [/test-rest-client](../test-rest-client/) directory instead of manual curl commands!
 
 ### User Service Tests
+
+More in [/test-rest-client/users.http](../test-rest-client/users.http)
 
 #### Create a User
 ```bash
@@ -160,6 +162,8 @@ curl http://localhost:3000/users/123
 ```
 
 ### Order Service Tests
+
+More in [/test-rest-client/orders.http](../test-rest-client/orders.http)
 
 #### Create an Order
 ```bash
