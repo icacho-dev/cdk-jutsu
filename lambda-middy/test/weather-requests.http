@@ -1,0 +1,4 @@
+### Get by city
+Get http://127.0.0.1:3001/weather
+?city=London
+Accept: application/json

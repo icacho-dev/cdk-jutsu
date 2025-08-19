@@ -1,0 +1,22 @@
+{
+  "httpMethod": "GET",
+  "path": "/weather",
+  "queryStringParameters": {
+    "city": "New York"
+  },
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": null,
+  "isBase64Encoded": false,
+  "requestContext": {
+    "requestId": "test-weather-request",
+    "stage": "test",
+    "httpMethod": "GET",
+    "path": "/weather"
+  },
+  "pathParameters": null,
+  "multiValueQueryStringParameters": null,
+  "multiValueHeaders": null,
+  "stageVariables": null
+} 

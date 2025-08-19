@@ -1,0 +1,37 @@
+{
+  "name": "cdk-top-level-await",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "cdk-top-level-await": "bin/cdk-top-level-await.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "cdk": "cdk",
+    "synth": "npm run build && npx cdk synth",
+    "setup": "chmod +x scripts/setup-dev.sh && scripts/setup-dev.sh",
+    "local": "npm run build && node scripts/local-dev.js",
+    "sam:lambda": "chmod +x scripts/sam-local.sh && scripts/sam-local.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.9",
+    "@vitest/ui": "^3.2.4",
+    "aws-cdk": "2.1020.2",
+    "aws-sdk-client-mock": "^4.1.0",
+    "aws-sdk-client-mock-vitest": "^6.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.3",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.844.0",
+    "@types/aws-lambda": "^8.10.150",
+    "aws-cdk-lib": "2.202.0",
+    "constructs": "^10.0.0",
+    "winston": "^3.17.0"
+  }
+}

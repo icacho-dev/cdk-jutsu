@@ -1,0 +1,50 @@
+{
+  "httpMethod": "GET",
+  "path": "/hello",
+  "headers": {
+    "User-Agent": "SAM-Local-Test",
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+  },
+  "multiValueHeaders": {},
+  "queryStringParameters": {
+    "name": "SAM Local"
+  },
+  "multiValueQueryStringParameters": {},
+  "pathParameters": {},
+  "stageVariables": {},
+  "requestContext": {
+    "requestId": "local-test-request-id",
+    "stage": "dev",
+    "resourceId": "test",
+    "httpMethod": "GET",
+    "requestTime": "01/Jan/2024:00:00:00 +0000",
+    "requestTimeEpoch": 1704067200000,
+    "path": "/hello",
+    "protocol": "HTTP/1.1",
+    "resourcePath": "/hello",
+    "accountId": "123456789012",
+    "apiId": "local-api",
+    "identity": {
+      "accessKey": null,
+      "accountId": null,
+      "apiKey": null,
+      "apiKeyId": null,
+      "caller": null,
+      "cognitoAuthenticationProvider": null,
+      "cognitoAuthenticationType": null,
+      "cognitoIdentityId": null,
+      "cognitoIdentityPoolId": null,
+      "principalOrgId": null,
+      "sourceIp": "127.0.0.1",
+      "user": null,
+      "userAgent": "SAM-Local-Test",
+      "userArn": null,
+      "clientCert": null
+    },
+    "authorizer": {}
+  },
+  "resource": "/hello",
+  "body": null,
+  "isBase64Encoded": false
+} 
